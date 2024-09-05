@@ -22,7 +22,7 @@ pipeline {
                 dir('users-service') {
                     // sh 'npm install'
                     // sh 'npm test'
-                    bat 'npm start'
+                    bat 'npm install'
                     bat 'npm test'
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
                 dir('order-service') {
                     // sh 'npm install'
                     // sh 'npm test'
-                    bat 'npm start'
+                    bat 'npm install'
                     bat 'npm test'
                 }
             }
