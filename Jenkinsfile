@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        lable 'windows_slave'
+        label 'windows_slave'
         }
 
     environment {
