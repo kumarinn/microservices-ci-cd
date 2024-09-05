@@ -1,5 +1,5 @@
 pipeline {
-    agent {'windows_slave'}
+    agent {'lable', 'windows_slave'}
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-jenkins')
