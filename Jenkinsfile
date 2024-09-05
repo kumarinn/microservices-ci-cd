@@ -43,7 +43,7 @@ pipeline {
             parallel {
                 stage('User Service') {
                     steps {
-                        dir('user-service') {
+                        dir('users-service') {
                             script {
                                 dockerImage = docker.build("${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}/user-service:${env.BUILD_NUMBER}")
                                 docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
