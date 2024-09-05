@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {'windows_slave'}
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-jenkins')
@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build and Test User Service') {
             steps {
-                dir('user-service') {
+                dir('users-service') {
                     // sh 'npm install'
                     // sh 'npm test'
                     bat 'npm start'
