@@ -2,24 +2,26 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
-        DOCKERHUB_USERNAME = 'your_dockerhub_username'
-        DOCKERHUB_REPO = 'your_dockerhub_repo'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-jenkins')
+        DOCKERHUB_USERNAME = 'kumari388'
+        DOCKERHUB_REPO = 'node-ms-cicd'
        // KUBE_CONFIG = credentials('kubeconfig-credentials-id')
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/yourusername/microservices-ci-cd.git', branch: 'main'
+                git branch: 'main', credentialsId: 'git-jenkins', url: 'https://github.com/kumarinn/microservices-ci-cd.git'
             }
         }
 
         stage('Build and Test User Service') {
             steps {
                 dir('user-service') {
-                    sh 'npm install'
-                    sh 'npm test'
+                    // sh 'npm install'
+                    // sh 'npm test'
+                    bat 'npm start'
+                    bat 'npm test'
                 }
             }
         }
@@ -27,8 +29,10 @@ pipeline {
         stage('Build and Test Order Service') {
             steps {
                 dir('order-service') {
-                    sh 'npm install'
-                    sh 'npm test'
+                    // sh 'npm install'
+                    // sh 'npm test'
+                    bat 'npm start'
+                    bat 'npm test'
                 }
             }
         }
