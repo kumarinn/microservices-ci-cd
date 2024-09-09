@@ -4,7 +4,7 @@ pipeline {
         }
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-jenkins')
+        DOCKERHUB_CREDENTIALS = credentials('docker-token')
         DOCKERHUB_USERNAME = 'kumari388'
         DOCKERHUB_REPO = 'node-ms-cicd'
        // KUBE_CONFIG = credentials('kubeconfig-credentials-id')
